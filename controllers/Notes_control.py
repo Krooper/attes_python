@@ -1,5 +1,10 @@
 import json
 
+from datetime import datetime
+
+from models.Note import Note
+
+
 def int_check(note_id):
     try:
         int(note_id)
@@ -8,8 +13,13 @@ def int_check(note_id):
         return False
 
 
-class Notes_control:
+class encode_date_time(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, datetime):
+            return obj.isoformat()
 
+
+class Notes_control:
     @staticmethod
     def note_check(note, notes):
         if note in notes.notes_dict.keys():
@@ -54,8 +64,8 @@ class Notes_control:
     def date_sort(notes):
         for i in range(len(notes.notes) - 1):
             for j in range(len(notes.notes) - 1 - i):
-                if notes.notes[j].date_edited > notes.notes[j+1].date_edited:
-                    notes.notes[j], notes.notes[j+1] = notes.notes[j+1], notes.notes[j]
+                if notes.notes[j].date_edited > notes.notes[j + 1].date_edited:
+                    notes.notes[j], notes.notes[j + 1] = notes.notes[j + 1], notes.notes[j]
 
         return notes
 
@@ -74,9 +84,33 @@ class Notes_control:
 
     @staticmethod
     def file_save(notes, file):
-        save_dict = notes.copy()
-        for field, note_info in save_dict.items():
-            save_dict[field] = str(note_info)
+        save_dict = {}
+        for note_id, note in notes.notes_dict.items():
+            save_dict[note_id] = note
+            for field, info in note.items():
+                save_dict[note_id][field] = info
 
         with open(file, "w", encoding="utf-8") as file:
-            json.dump(save_dict, file)
+            file.write(json.dumps(save_dict, indent=4, cls=encode_date_time))
+
+    @staticmethod
+    def file_read(notes, file):
+        with open(file) as file:
+            notes_dict = json.load(file)
+
+        for key in notes_dict.keys():
+            notes.notes_dict[int(key)] = notes_dict[key]
+
+    @staticmethod
+    def save_from_file(notes):
+        notes.notes = []
+        for note_id, note in notes.notes_dict.items():
+            new_note = Note()
+            new_note.id = int(note_id)
+            print(note["Date of creation"])
+            new_note.date_created = datetime.fromisoformat(note["Date of creation"])
+            new_note.date_edited = datetime.fromisoformat(note["Date of editing"])
+            new_note.caption = note["Caption"]
+            new_note.text = note["Text"]
+            notes.notes.append(new_note)
+        print(notes)

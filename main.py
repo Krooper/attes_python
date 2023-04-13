@@ -70,12 +70,17 @@ def main():
 
     new_view.note_sort("notes.json")
 
+    new_view.file_read("notes.json")
+
     new_view.note_edit("notes.json")
 
-    print(new_view.notes)
+    new_view.note_sort("notes.json")
 
-    new_view.file_save("notes.json")
+    new_view.note_input("notes.json")
 
+    new_view.note_edit("notes.json")
+
+    new_view.note_sort("notes.json")
 
 
 if __name__ == "__main__":

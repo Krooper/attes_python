@@ -14,7 +14,7 @@ class Notes_view:
 
     def note_choose(self):
         print("Choose a Note from the list below\n")
-        time.sleep(2)
+        time.sleep(1)
         print(self.notes)
         note_id = input("Input a note id: ")
 
@@ -33,28 +33,34 @@ class Notes_view:
 
     def note_input(self, file):
         note = Note()
+        note.set_caption()
+        note.set_text()
         Notes_control.add(note, self.notes)
-        Notes_control.file_save(self.notes.notes_dict, file)
+        Notes_control.file_save(self.notes, file)
 
     def note_edit(self, file):
         note_id = self.note_choose()
         edit_note = Notes_control.edit(note_id, self.notes)
         edited_note = Note_control.edit(edit_note)
         Notes_control.add(edited_note, self.notes)
-        Notes_control.file_save(self.notes.notes_dict, file)
+        Notes_control.file_save(self.notes, file)
 
     def note_delete(self, file):
         note_id = self.note_choose()
         Notes_control.delete(note_id, self.notes)
-        Notes_control.file_save(self.notes.notes_dict, file)
+        Notes_control.file_save(self.notes, file)
 
     def note_sort(self, file):
         self.notes = Notes_control.date_sort(self.notes)
         self.notes = Notes_control.date_save(self.notes)
-        Notes_control.file_save(self.notes.notes_dict, file)
+        Notes_control.file_save(self.notes, file)
 
     def file_save(self, file):
-        Notes_control.file_save(self.notes.notes_dict, file)
+        Notes_control.file_save(self.notes, file)
+
+    def file_read(self, file):
+        Notes_control.file_read(self.notes, file)
+        Notes_control.save_from_file(self.notes)
 
 
 

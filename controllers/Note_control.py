@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from controllers.Notes_control import Notes_control
+from models.Note import Note
 
 
 class Note_control:
@@ -16,5 +16,3 @@ class Note_control:
         note.text = input()
 
         return note
-
-

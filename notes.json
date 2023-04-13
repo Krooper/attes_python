@@ -1,1 +1,26 @@
-{"2": "{'Date of creation': datetime.datetime(2023, 4, 13, 17, 42, 46, 672331), 'Date of editing': datetime.datetime(2023, 4, 13, 17, 42, 46, 672331), 'Caption': '2', 'Text': '2'}", "1": "{'Date of creation': datetime.datetime(2023, 4, 13, 17, 42, 45, 261914), 'Date of editing': datetime.datetime(2023, 4, 13, 17, 42, 55, 245017), 'Caption': '111', 'Text': '111'}", "0": "{'Date of creation': datetime.datetime(2023, 4, 13, 17, 42, 43, 168196), 'Date of editing': datetime.datetime(2023, 4, 13, 17, 43, 1, 160352), 'Caption': '000', 'Text': '000'}"}
+{
+    "1": {
+        "Date of creation": "2023-04-13T20:33:36.605415",
+        "Date of editing": "2023-04-13T20:33:51.959582",
+        "Caption": "111",
+        "Text": "111"
+    },
+    "0": {
+        "Date of creation": "2023-04-13T20:33:32.962304",
+        "Date of editing": "2023-04-13T20:33:58.354204",
+        "Caption": "000",
+        "Text": "000"
+    },
+    "6": {
+        "Date of creation": "2023-04-13T20:34:00.917134",
+        "Date of editing": "2023-04-13T20:34:00.917134",
+        "Caption": "000",
+        "Text": "000"
+    },
+    "2": {
+        "Date of creation": "2023-04-13T20:33:39.198230",
+        "Date of editing": "2023-04-13T20:34:38.149319",
+        "Caption": "222",
+        "Text": "222"
+    }
+}

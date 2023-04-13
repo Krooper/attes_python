@@ -9,6 +9,14 @@ class Note:
     caption = str
     text = str
 
+    def set_caption(self):
+        print("Input a Caption:")
+        self.caption = input()
+
+    def set_text(self):
+        print("Input Notes text:")
+        self.text = input()
+
     def __init__(self):
         global counter
         self.id = counter
@@ -16,11 +24,5 @@ class Note:
 
         self.date_created = datetime.now()
         self.date_edited = datetime.now()
-
-        print("Input a Caption:")
-        self.caption = input()
-
-        print("Input Notes text:")
-        self.text = input()
 
 
