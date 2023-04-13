@@ -1,7 +1,5 @@
 import json
-
 from datetime import datetime
-
 from models.Note import Note
 
 
