@@ -31,21 +31,30 @@ class Notes_view:
 
         return note_id
 
-    def note_input(self):
+    def note_input(self, file):
         note = Note()
         Notes_control.add(note, self.notes)
+        Notes_control.file_save(self.notes.notes_dict, file)
 
-    def note_edit(self):
+    def note_edit(self, file):
         note_id = self.note_choose()
         edit_note = Notes_control.edit(note_id, self.notes)
         edited_note = Note_control.edit(edit_note)
         Notes_control.add(edited_note, self.notes)
+        Notes_control.file_save(self.notes.notes_dict, file)
 
-    def note_delete(self):
+    def note_delete(self, file):
         note_id = self.note_choose()
         Notes_control.delete(note_id, self.notes)
+        Notes_control.file_save(self.notes.notes_dict, file)
 
+    def note_sort(self, file):
+        self.notes = Notes_control.date_sort(self.notes)
+        self.notes = Notes_control.date_save(self.notes)
+        Notes_control.file_save(self.notes.notes_dict, file)
 
+    def file_save(self, file):
+        Notes_control.file_save(self.notes.notes_dict, file)
 
 
 

@@ -17,9 +17,4 @@ class Note_control:
 
         return note
 
-    @staticmethod
-    def date_sort(notes):
-        # notes.notes_dict.clear()
-        # notes.notes.sort()
-        # for note in notes.notes:
-        # Notes_control.add(note, notes)
+

@@ -8,10 +8,9 @@ class Notes:
 
     def __str__(self):
         out_str = ''
-        for note_id, notes in self.notes_dict.items():
+        for note_id, note in self.notes_dict.items():
             out_str += f"Note {note_id}:\n"
-            for note in notes:
-                for key, value in note.items():
-                    out_str += f"{key}: {value}\n"
-                out_str += "\n"
+            for key, value in note.items():
+                out_str += f"{key}: {value}\n"
+            out_str += "\n"
         return out_str
