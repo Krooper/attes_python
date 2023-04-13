@@ -35,6 +35,7 @@ class Notes_view:
         note = Note()
         note.set_caption()
         note.set_text()
+        note.set_id()
         Notes_control.add(note, self.notes)
         Notes_control.file_save(self.notes, file)
 
@@ -61,6 +62,3 @@ class Notes_view:
     def file_read(self, file):
         Notes_control.file_read(self.notes, file)
         Notes_control.save_from_file(self.notes)
-
-
-

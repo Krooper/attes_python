@@ -1,5 +1,3 @@
-from time import sleep
-
 from views.Notes_view import Notes_view
 import os
 
@@ -59,7 +57,7 @@ def start():
 
 
 def main():
-    #file = start()
+    # file = start()
 
     new_view = Notes_view()
     new_view.note_input("notes.json")
@@ -85,5 +83,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-

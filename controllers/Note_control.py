@@ -1,7 +1,5 @@
 from datetime import datetime
 
-from models.Note import Note
-
 
 class Note_control:
 

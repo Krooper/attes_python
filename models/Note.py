@@ -17,12 +17,11 @@ class Note:
         print("Input Notes text:")
         self.text = input()
 
-    def __init__(self):
+    def set_id(self):
         global counter
         self.id = counter
         counter += 1
 
+    def __init__(self):
         self.date_created = datetime.now()
         self.date_edited = datetime.now()
-
-
