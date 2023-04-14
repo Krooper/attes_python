@@ -1,3 +1,5 @@
+import datetime
+
 from file_manager import create_file, get_file
 from views.Notes_view import Notes_view
 
@@ -28,27 +30,33 @@ def start():
 
 def main():
     # file = start()
-
+    #
     new_view = Notes_view()
-    new_view.note_input("notes.json")
-    new_view.note_input("notes.json")
-    new_view.note_input("notes.json")
-
-    new_view.note_edit("notes.json")
-
-    new_view.note_sort("notes.json")
+    # new_view.note_input("notes.json")
+    # new_view.note_input("notes.json")
+    # new_view.note_input("notes.json")
+    #
+    # new_view.note_edit("notes.json")
+    #
+    # new_view.note_sort("notes.json")
+    #
+    # new_view.file_read("notes.json")
+    #
+    # new_view.note_edit("notes.json")
+    #
+    # new_view.note_sort("notes.json")
+    #
+    # new_view.note_input("notes.json")
+    #
+    # new_view.note_edit("notes.json")
+    #
+    # new_view.note_sort("notes.json")
 
     new_view.file_read("notes.json")
-
-    new_view.note_edit("notes.json")
-
-    new_view.note_sort("notes.json")
-
-    new_view.note_input("notes.json")
-
-    new_view.note_edit("notes.json")
-
-    new_view.note_sort("notes.json")
+    # print(datetime.datetime.now())
+    # new_view.note_input("notes.json")
+    # print(new_view.notes)
+    new_view.select_date_range()
 
 
 if __name__ == "__main__":

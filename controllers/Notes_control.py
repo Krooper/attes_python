@@ -3,9 +3,9 @@ from datetime import datetime
 from models.Note import Note
 
 
-def int_check(note_id):
+def int_check(number):
     try:
-        int(note_id)
+        int(number)
         return True
     except ValueError:
         return False
@@ -105,10 +105,8 @@ class Notes_control:
         for note_id, note in notes.notes_dict.items():
             new_note = Note()
             new_note.id = int(note_id)
-            print(note["Date of creation"])
             new_note.date_created = datetime.fromisoformat(note["Date of creation"])
             new_note.date_edited = datetime.fromisoformat(note["Date of editing"])
             new_note.caption = note["Caption"]
             new_note.text = note["Text"]
             notes.notes.append(new_note)
-        print(notes)
