@@ -36,7 +36,7 @@ class Notes_view:
         note = Note()
         note_id = 0
         for note in self.notes.notes:
-            note_id += 1
+            note_id = note.id + 1
         note.set_id(note_id)
         note.set_caption()
         note.set_text()

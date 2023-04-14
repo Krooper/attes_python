@@ -1,7 +1,4 @@
-import datetime
-
-from file_manager import create_file, get_file
-from views.Notes_view import Notes_view
+from file_manager import get_file
 
 
 def start():
@@ -15,48 +12,55 @@ def start():
     try:
         inp_com = int(inp_com)
         if inp_com == 1:
-            file = create_file()
+            file, new_view = get_file()
         elif inp_com == 2:
-            file = get_file()
+            file, new_view = get_file()
         elif inp_com == 0:
+            new_view = None
             quit()
         else:
             raise ValueError
     except ValueError:
         print('There is no such command! Try again!')
         return start()
-    return file
+    return file, new_view
+
+
+def main_menu(file, new_view):
+    while True:
+
+        print('-' * 75)
+        print('Main menu')
+        print('-' * 75)
+        inp_com = input(f'Choose an action:\n"1" - Print notes\n'
+                        f'"2" - Add note\n"3" - Edit note\n'
+                        f'"4" - Delete note\n"5" - Choose notes by date\n'
+                        f'"0" - Exit\n')
+        print('-' * 75)
+        try:
+            inp_com = int(inp_com)
+            if inp_com == 1:
+                print(new_view.notes)
+            elif inp_com == 2:
+                new_view.note_input(file)
+            elif inp_com == 3:
+                new_view.note_edit(file)
+            elif inp_com == 4:
+                new_view.note_delete(file)
+            elif inp_com == 5:
+                new_view.select_date_range()
+            elif inp_com == 0:
+                quit()
+            else:
+                raise ValueError
+        except ValueError:
+            print('No such command! Try again!')
+            return main_menu()
 
 
 def main():
-    # file = start()
-    #
-    new_view = Notes_view()
-    # new_view.note_input("notes.json")
-    # new_view.note_input("notes.json")
-    # new_view.note_input("notes.json")
-    #
-    # new_view.note_edit("notes.json")
-    #
-    # new_view.note_sort("notes.json")
-    #
-    # new_view.file_read("notes.json")
-    #
-    # new_view.note_edit("notes.json")
-    #
-    # new_view.note_sort("notes.json")
-    #
-    # new_view.note_input("notes.json")
-    #
-    # new_view.note_edit("notes.json")
-    #
-    # new_view.note_sort("notes.json")
-
-    new_view.file_read("notes.json")
-    # print(datetime.datetime.now())
-    # new_view.note_input("notes.json")
-    # print(new_view.notes)
-    new_view.select_date_range()
+    file, new_view = start()
+    main_menu(file, new_view)
 
 
 if __name__ == "__main__":
