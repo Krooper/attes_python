@@ -52,7 +52,7 @@ class Notes_control:
         except KeyError:
             print("No such note! Try again!")
 
-        note_for_editing = None
+        note_for_editing = notes.notes[0]
         for note_i in range(len(notes.notes) - 1):
             if notes.notes[note_i].id == note_id:
                 note_for_editing = notes.notes.pop(note_i)
